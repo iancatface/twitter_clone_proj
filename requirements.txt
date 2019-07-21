@@ -1,0 +1,4 @@
+django
+pillow
+django-taggit
+sorl-thumbnail (sorl.thumbnail)

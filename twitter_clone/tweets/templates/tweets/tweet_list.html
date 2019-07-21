@@ -1,0 +1,17 @@
+{% load thumbnail %}
+<h1>tweet list page</h1>
+
+{% for tweet in tweets %}
+    {{ tweet.author }}
+    <a href="{% url 'tweets:tweet_detail' tweet.id %}">{{ tweet.created }}</a>
+    {% if tweet.body %}
+        <h3>{{ tweet.body }}</h3>
+    {% endif %}
+    {% if tweet.image %}
+        {% thumbnail tweet.image "300x300" crop="center" as im %}
+        <a href="{{ tweet.image.url }}">
+            <img src="{{ im.url }}" alt="">
+        </a>
+        {% endthumbnail %}
+    {% endif %}
+{% endfor %}

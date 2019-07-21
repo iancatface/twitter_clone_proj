@@ -1,0 +1,9 @@
+<h1>tweet detail page</h1>
+
+{{tweet.author}}
+{% if tweet.body %}
+    <h3>{{ tweet.body }}</h3>
+{% endif %}
+{% if tweet.image %}
+    <h3>{{ tweet.image }}</h3>
+{% endif %}

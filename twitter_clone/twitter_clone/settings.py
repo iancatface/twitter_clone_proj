@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
 
     'tweets.apps.TweetsConfig',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [

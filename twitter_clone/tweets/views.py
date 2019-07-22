@@ -29,9 +29,9 @@ def tweet_create(request):
         form = TweetCreationForm(data=request.GET)
     return render(request, 'tweets/tweet_create.html', {'form': form})
 
-class TweetCreateView(CreateView):
-    model = Tweet
-    form_class = TweetCreationForm
-    template_name = 'tweets/tweet_create.html'
-    success_url = reverse_lazy('tweet_list')
+# class TweetCreateView(CreateView):
+#     model = Tweet
+#     form_class = TweetCreationForm
+#     template_name = 'tweets/tweet_create.html'
+#     success_url = reverse_lazy('tweet_list')
     

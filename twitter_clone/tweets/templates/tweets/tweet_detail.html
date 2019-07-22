@@ -1,14 +1,4 @@
-{% load thumbnail %}
+
 <h1>tweet detail page</h1>
 
-{{tweet.author}}
-{% if tweet.body %}
-    <h3>{{ tweet.body }}</h3>
-{% endif %}
-{% if tweet.image %}
-    {% thumbnail tweet.image '300x300' crop='center' as im %}
-        <a href="{{ tweet.image.url }}">
-            <img src="{{ im.url }}" alt="">
-        </a>
-    {% endthumbnail %}
-{% endif %}
+{% include 'tweets/_tweet.html' %}

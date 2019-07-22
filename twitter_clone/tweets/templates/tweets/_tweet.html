@@ -1,0 +1,14 @@
+{% load static %}
+{% load thumbnail %}
+<h3>{{tweet.author}}</h3>
+{{ tweet.created }}
+{% if tweet.body %}
+    <h3>{{ tweet.body }}</h3>
+{% endif %}
+{% if tweet.image %}
+    {% thumbnail tweet.image '300x300' crop='center' as im %}
+        <a href="{{ tweet.image.url }}">
+            <img src="{{ im.url }}" alt="">
+        </a>
+    {% endthumbnail %}
+{% endif %}

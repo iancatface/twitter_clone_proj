@@ -3,8 +3,9 @@
 <h3><a href="{% url 'tweets:tweet_create' %}">TWEET</a></h3>
 
 {% for tweet in tweets %}
-    {{ tweet.author }}
-    <a href="{{ tweet.get_absolute_url }}">{{ tweet.created }}</a>
+    {{ tweet.author }} 
+    
+    <a href="{{ tweet.get_absolute_url }}">{{ tweet.created|timesince }}</a>
     {% if tweet.body %}
         <h3>{{ tweet.body }}</h3>
     {% endif %}

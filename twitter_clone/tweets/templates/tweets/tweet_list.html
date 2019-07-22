@@ -1,9 +1,10 @@
 {% load thumbnail %}
 <h1>tweet list page</h1>
+<h3><a href="{% url 'tweets:tweet_create' %}">TWEET</a></h3>
 
 {% for tweet in tweets %}
     {{ tweet.author }}
-    <a href="{% url 'tweets:tweet_detail' tweet.id %}">{{ tweet.created }}</a>
+    <a href="{{ tweet.get_absolute_url }}">{{ tweet.created }}</a>
     {% if tweet.body %}
         <h3>{{ tweet.body }}</h3>
     {% endif %}
@@ -14,4 +15,5 @@
         </a>
         {% endthumbnail %}
     {% endif %}
+    <hr>
 {% endfor %}

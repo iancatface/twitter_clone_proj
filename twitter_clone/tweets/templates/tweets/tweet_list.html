@@ -1,16 +1,14 @@
+{% extends 'base.html' %}
 {% load thumbnail %}
 
-{% if user.is_authenticated %}
-    <h1>welcome, {{ user.username }}</h1>
-    <a href="{% url 'accounts:logout' %}">LOGOUT</a>
-{% else %}
-    <p>hey! you can login <a href="{% url 'accounts:login' %}">HERE</a>
-    </p>
-{% endif %}
 
-<h1>tweet list page</h1>
+{% block content %}
+
+<h1>your tweets</h1>
 <h3><a href="{% url 'tweets:tweet_create' %}">TWEET</a></h3>
 
+<a href="{% url 'tweets:tweet_list' %}">TWEETS</a>
+{% comment %} <a href="{% url 'tweets:media_tweet_list' media=True %}">Media</a> {% endcomment %}
 {% for tweet in tweets %}
     {{ tweet.author }} 
     
@@ -27,3 +25,4 @@
     {% endif %}
     <hr>
 {% endfor %}
+{% endblock content %}

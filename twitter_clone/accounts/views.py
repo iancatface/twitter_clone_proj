@@ -17,7 +17,7 @@ def login_view(request):
             if new_user is not None:
                 if new_user.is_active:
                     login(request, new_user)
-                    return HttpResponse('eyy ur logined')
+                    return redirect('tweets:tweet_list')
                 else:
                     return HttpResponse('ur not active')
             else:

@@ -4,12 +4,16 @@ from .forms import TweetCreationForm
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView
 from django.contrib import messages
 
 
+@login_required
 def tweet_list(request):
-    tweets = Tweet.objects.all()
+    tweets = Tweet.objects.filter(author=request.user)
+    # if media:
+    #     tweets = Tweet.objects.filter(image=True)     
     return render(request, 'tweets/tweet_list.html', {'tweets': tweets})
 
 def tweet_detail(request, tweet_id):

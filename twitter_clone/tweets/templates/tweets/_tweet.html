@@ -1,7 +1,12 @@
 {% load static %}
 {% load thumbnail %}
 <h3>{{tweet.author}}</h3>
-{{ tweet.created }}
+{% if tweet.created %}
+    <p>just now</p>
+{% else %}
+    {{ tweet.created }}
+{% endif %}
+
 {% if tweet.body %}
     <h3>{{ tweet.body }}</h3>
 {% endif %}

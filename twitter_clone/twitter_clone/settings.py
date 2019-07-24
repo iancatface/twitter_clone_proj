@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -42,6 +42,9 @@ INSTALLED_APPS = [
 
     'tweets.apps.TweetsConfig',
     'accounts.apps.AccountsConfig',
+
+    'django.contrib.admin',
+    #in order for django to look for templates in 'registration' folder in my app django.contrib.admin needs to be placed after my app
 ]
 
 MIDDLEWARE = [
@@ -126,3 +129,5 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+LOGIN_REDIRECT_URL = 'tweets:tweet_list'

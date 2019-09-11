@@ -14,7 +14,7 @@ class Tweet(models.Model):
     author = models.ForeignKey(User, related_name='tweets', on_delete=models.CASCADE)
     body = models.CharField(max_length=280, blank=True)
     #DO NOT use null=True on Text and Charfield
-    image = models.ImageField(upload_to=user_directory_path, blank=True, null=True)
+    image = models.ImageField(upload_to=user_directory_path, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     users_like = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='tweets_like', blank=True)
     users_retweet = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='tweets_retweet', blank=True)
